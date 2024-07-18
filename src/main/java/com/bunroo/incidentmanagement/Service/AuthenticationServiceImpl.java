@@ -27,6 +27,60 @@ public class AuthenticationServiceImpl implements  AuthenticationService{
         return response;
 
     }
+
+    @Override
+    public AuthResponse resetPassword(AuthRequest request) {
+        AuthResponse response= new AuthResponse();
+        if(!userRepository.checkExistingUser(request)) {
+
+        response.setStatusCode("-1");
+        response.setStatusMessage("Invalid user name");
+        }
+        else
+        {
+            if(userRepository.validateSecretQuestion(request))
+            {
+
+
+
+                response.setStatusMessage("Password successfully changed");
+                response.setStatusCode("200");
+            }
+            else
+            {
+                response.setStatusMessage("Invalid Secret Answer");
+                response.setStatusCode("-1");
+            }
+        }
+
+        return response;
+    }
+
+    @Override
+    public AuthResponse logout(AuthRequest request) {
+        return null;
+    }
+
+    @Override
+    public AuthResponse register(AuthRequest request) {
+        AuthResponse response=new AuthResponse();
+        if(userRepository.checkExistingUser(request))
+        {
+            response.setStatusCode("-1");
+            response.setStatusMessage("Existing User");
+        }
+        else
+        {
+            String result=userRepository.registerUser(request);
+            response.setStatusCode("200");
+            response.setStatusMessage("User registered Successfully");
+
+        }
+        return response;
+
+
+    }
+
     private  void authenticate(String username, String password) throws Exception {
         /*try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));

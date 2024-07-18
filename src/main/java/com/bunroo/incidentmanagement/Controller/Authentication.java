@@ -18,4 +18,16 @@ public class Authentication {
     public AuthResponse login(@RequestBody AuthRequest request) throws Exception {
       return   authenticationService.login(request);
     }
+    @PostMapping("/forgotPassword")
+    public AuthResponse forgotPassword(@RequestBody AuthRequest request) throws Exception {
+        return   authenticationService.resetPassword(request);
+    }
+    @PostMapping("/logout")
+    public AuthResponse logout(@RequestBody AuthRequest request) throws Exception {
+        return   authenticationService.logout(request);
+    }
+    @PostMapping("/register")
+    public AuthResponse register(@RequestBody AuthRequest request) throws Exception {
+        return   authenticationService.register(request);
+    }
 }

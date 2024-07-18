@@ -7,4 +7,10 @@ import org.springframework.stereotype.Service;
 
 public interface AuthenticationService {
     public AuthResponse login(AuthRequest request);
+
+    public AuthResponse resetPassword(AuthRequest request);
+
+    public AuthResponse logout(AuthRequest request);
+
+    public AuthResponse register(AuthRequest request);
 }

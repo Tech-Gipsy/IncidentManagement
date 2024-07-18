@@ -1,6 +1,7 @@
 package com.bunroo.incidentmanagement.DAO;
 
 import com.bunroo.incidentmanagement.DTO.UserDTO;
+import com.bunroo.incidentmanagement.Request.AuthRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -27,5 +28,18 @@ public class AuthenticationDAO {
                 return user;
             }
         });
+    }
+
+    public boolean checkExistingUser(AuthRequest request) {
+
+        return false;
+    }
+
+    public String registerUser(AuthRequest request) {
+        
+    }
+
+    public boolean validateSecretQuestion(AuthRequest request) {
+        return false;
     }
 }
