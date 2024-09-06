@@ -36,7 +36,8 @@ public class AuthenticationDAO {
     }
 
     public String registerUser(AuthRequest request) {
-        
+
+        return null;
     }
 
     public boolean validateSecretQuestion(AuthRequest request) {
