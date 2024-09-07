@@ -27,7 +27,6 @@ public class AuthenticationDAO {
                 user.setRoles(rs.getString("USER_TYPE"));
                 return user;
             }
-
         });
     }
 
